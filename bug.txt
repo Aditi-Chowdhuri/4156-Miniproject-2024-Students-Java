@@ -1,0 +1,18 @@
+Refactor this getter so that it actually refers to the field "courseLocation".
+Refactor this getter so that it actually refers to the field "instructorName".
+enrollStudent() always returns False
+dropStudent() always returns False
+Initializing enrolledStudentCount to 500 and not starting from 0
+isCourseFull() logic is not correct
+
+getNumberOfMajors() will always return a negative value
+getDepartmentChair() returns a string not the value of the variable, this wil will also fix The value of the field Department.departmentChair is not used, and Remove this unused "departmentChair" private field.
+dropPersonFromMajor() does not check if it's greater than zero
+toString() returns a string not the value of the variable
+
+MyFileDatabase() constructor can end up with NullPointerException
+deSerializeObjectFromFile() had a warning Return an empty map instead of null.
+toString() might have a NullPointerException so need to check for null condition
+
+HttpStatus.NOT_FOUND and HttpStatus.OK interchanged retrieveDepartment()
+getMajorCtFromDept() returns negative number for the majors

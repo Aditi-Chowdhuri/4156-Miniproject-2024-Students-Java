@@ -1,7 +1,13 @@
 package dev.coms4156.project.individualproject;
 
-import java.io.*;
-import java.util.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  * This class represents a file-based database containing department mappings.
@@ -19,6 +25,11 @@ public class MyFileDatabase {
     this.filePath = filePath;
     if (flag == 0) {
       this.departmentMapping = deSerializeObjectFromFile();
+      if (this.departmentMapping == null) {
+        this.departmentMapping = new HashMap<>(); 
+      }
+    } else {
+      this.departmentMapping = new HashMap<>(); 
     }
   }
 
@@ -46,7 +57,7 @@ public class MyFileDatabase {
       }
     } catch (IOException | ClassNotFoundException e) {
       e.printStackTrace();
-      return null;
+      return new HashMap<>();
     }
   }
 
@@ -79,6 +90,9 @@ public class MyFileDatabase {
    */
   @Override
   public String toString() {
+    if (departmentMapping == null) {
+      return "Department Not Found";
+    }
     StringBuilder result = new StringBuilder();
     for (Map.Entry<String, Department> entry : departmentMapping.entrySet()) {
       String key = entry.getKey();
