@@ -103,6 +103,11 @@ public class Course implements Serializable {
     return enrolledStudentCount >= enrollmentCapacity;
   }
 
+  // Add this getter for enrolledStudentCount
+  public int getEnrolledStudentCount() {
+    return enrolledStudentCount;
+  }
+
   @Serial
   private static final long serialVersionUID = 123456L;
   private final int enrollmentCapacity;

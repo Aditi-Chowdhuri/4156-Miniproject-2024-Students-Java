@@ -19,11 +19,11 @@ import org.springframework.test.context.ContextConfiguration;
 @ContextConfiguration
 public class DepartmentUnitTests {
 
-  /** The test department instance used for testing. */
-
+  
   public Department testDepartment;
   private Course coms4156;
 
+  /** The test department instance used for testing. */
   @BeforeEach
   public void setupDepartmentForTesting() {
     coms4156 = new Course("Gail Kaiser",
@@ -79,6 +79,11 @@ public class DepartmentUnitTests {
     Assertions.assertEquals("10:10-11:30", course.getCourseTimeSlot());
     Assertions.assertFalse(course.isCourseFull());
   }
+
+  /**
+   * Tests that the method returns the expected 
+   * formatted string for department.
+   */
 
   public void toStringTest() {
     String expected = "COMS 4156: \n"
