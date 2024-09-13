@@ -2,14 +2,14 @@ package dev.coms4156.project.individualproject;
 
 import jakarta.annotation.PreDestroy;
 import java.util.HashMap;
-import java.util.Map;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * Class contains all the startup logic for the application.
- * <p></p>
+ * <p>
+ * </p>
  * DO NOT MODIFY ANYTHING BELOW THIS POINT WITH REGARD TO FUNCTIONALITY
  * YOU MAY MAKE STYLE/REFACTOR MODIFICATIONS AS NEEDED
  */
@@ -62,10 +62,10 @@ public class IndividualProjectApplication implements CommandLineRunner {
    * Allows for data to be reset in event of errors.
    */
   public void resetDataFile() {
-    String[] times = {"11:40-12:55", "4:10-5:25", "10:10-11:25", "2:40-3:55"};
-    String[] locations = {"417 IAB", "309 HAV", "301 URIS"};
+    String[] times = { "11:40-12:55", "4:10-5:25", "10:10-11:25", "2:40-3:55" };
+    String[] locations = { "417 IAB", "309 HAV", "301 URIS" };
 
-    //data for coms dept
+    // data for coms dept
     Course coms1004 = new Course("Adam Cannon", locations[0], times[0], 400);
     coms1004.setEnrolledStudentCount(249);
     Course coms3134 = new Course("Brian Borowski", locations[2], times[1], 250);
@@ -95,7 +95,7 @@ public class IndividualProjectApplication implements CommandLineRunner {
     HashMap<String, Department> mapping = new HashMap<>();
     mapping.put("COMS", compSci);
 
-    //data for econ dept
+    // data for econ dept
     Course econ1105 = new Course("Waseem Noor", locations[1], times[3], 210);
     econ1105.setEnrolledStudentCount(187);
     Course econ2257 = new Course("Tamrat Gashaw", "428 PUP", times[2], 125);
@@ -126,7 +126,7 @@ public class IndividualProjectApplication implements CommandLineRunner {
     Department econ = new Department("ECON", courses, "Michael Woodford", 2345);
     mapping.put("ECON", econ);
 
-    //data for ieor dept
+    // data for ieor dept
     Course ieor2500 = new Course("Uday Menon", "627 MUDD", times[0], 50);
     ieor2500.setEnrolledStudentCount(52);
     Course ieor3404 = new Course("Christopher J Dolan", "303 MUDD", times[2], 73);
@@ -157,7 +157,7 @@ public class IndividualProjectApplication implements CommandLineRunner {
     Department ieor = new Department("IEOR", courses, "Jay Sethuraman", 67);
     mapping.put("IEOR", ieor);
 
-    //data for chem dept
+    // data for chem dept
     Course chem1403 = new Course("Ruben M Savizky", locations[1], "6:10-7:25", 120);
     chem1403.setEnrolledStudentCount(100);
     Course chem1500 = new Course("Joseph C Ulichny", "302 HAV", "6:10-9:50", 46);
@@ -188,7 +188,7 @@ public class IndividualProjectApplication implements CommandLineRunner {
     Department chem = new Department("CHEM", courses, "Laura J. Kaufman", 250);
     mapping.put("CHEM", chem);
 
-    //data for phys dept
+    // data for phys dept
     Course phys1001 = new Course("Szabolcs Marka", "301 PUP", times[3], 150);
     phys1001.setEnrolledStudentCount(131);
     Course phys1201 = new Course("Eric Raymer", "428 PUP", times[3], 145);
@@ -219,7 +219,7 @@ public class IndividualProjectApplication implements CommandLineRunner {
     Department phys = new Department("PHYS", courses, "Dmitri N. Basov", 43);
     mapping.put("PHYS", phys);
 
-    //data for elen dept
+    // data for elen dept
     Course elen1201 = new Course("David G Vallancourt", "301 PUP", times[1], 120);
     elen1201.setEnrolledStudentCount(108);
     Course elen3082 = new Course("Kenneth Shepard", "1205 MUDD", "4:10-6:40", 32);
@@ -249,7 +249,7 @@ public class IndividualProjectApplication implements CommandLineRunner {
     Department elen = new Department("ELEN", courses, "Ioannis Kymissis", 250);
     mapping.put("ELEN", elen);
 
-    //data for psyc dept
+    // data for psyc dept
     Course psyc1001 = new Course("Patricia G Lindemann", "501 SCH", "1:10-2:25", 200);
     psyc1001.setEnrolledStudentCount(191);
     Course psyc1610 = new Course("Christopher Baldassano", "200 SCH", times[2], 45);
@@ -284,20 +284,19 @@ public class IndividualProjectApplication implements CommandLineRunner {
   }
 
   /**
-    * This contains all the overheading teardown logic, it will
-    * mainly be focused on saving all the created user data to a
-    * file, so it will be ready for the next setup.
-    */
+   * This contains all the overheading teardown logic, it will
+   * mainly be focused on saving all the created user data to a
+   * file, so it will be ready for the next setup.
+   */
   @PreDestroy
-    public void onTermination() {
+  public void onTermination() {
     System.out.println("Termination");
     if (saveData) {
       myFileDatabase.saveContentsToFile();
     }
   }
 
-
-  //Database Instance
+  // Database Instance
   public static MyFileDatabase myFileDatabase;
   private static boolean saveData = true;
 }
